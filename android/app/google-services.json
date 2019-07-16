@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "183203569822",
+    "firebase_url": "https://music-stream-52b69.firebaseio.com",
+    "project_id": "music-stream-52b69",
+    "storage_bucket": "music-stream-52b69.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183203569822:android:2b89af2bc2f5a4b2",
+        "android_client_info": {
+          "package_name": "com.example.music_stream"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183203569822-sb1se107n77u8jsl6rreilea2m6f72gv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.music_stream",
+            "certificate_hash": "8715b57021867c10c8d1b71c13d652b2c5e902f2"
+          }
+        },
+        {
+          "client_id": "183203569822-oamsca2g3r2opai0oef4qmocvetdl34n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9xHn9CDLBV-bd9ELTxHjWQzANc49t_Pg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "183203569822-oamsca2g3r2opai0oef4qmocvetdl34n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
