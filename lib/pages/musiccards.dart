@@ -155,7 +155,7 @@ class _MusCardStyleState extends State<MusCardStyle> {
                 ),
                 // child: ListTile(
                 //   title: Text(
-                //     text,
+                //     'text',
                 //     style: TextStyle(
                 //       fontWeight: FontWeight.bold,
                 //     ),

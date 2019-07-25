@@ -45,48 +45,62 @@ class _BottomMusicBarState extends State<BottomMusicBar>
   @override
   Widget build(BuildContext context) {
     name = Provider.of<PlayAnimations>(context);
-    name.playState ? anime.forward() : anime.reverse();
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Icon(Icons.favorite_border),
-        Container(
-          width: MediaQuery.of(context).size.width / 2,
-          child: Center(
-            child: Text(
-              name.songName,
-              overflow: TextOverflow.ellipsis,
+    var variable = name.songName != null
+        ? name.playState ? anime.forward() : anime.reverse()
+        : null;
+    return name.songName != null
+        ? Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              color: Colors.orange,
+              width: MediaQuery.of(context).size.width,
+              height: 40.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Icon(Icons.favorite_border),
+                  Container(
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Center(
+                      child: Text(
+                        name.songName,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    icon: AnimatedIcon(
+                      icon: AnimatedIcons.play_pause,
+                      progress: anime,
+                      size: 28.0,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {
+                      if (name.playState) {
+                        pauseIt();
+                        if (PlayAnimations
+                                .iconMap[PlayAnimations.prevStr].length >
+                            PlayAnimations.prevIndex) {
+                          PlayAnimations.iconMap[PlayAnimations.prevStr]
+                                  [PlayAnimations.prevIndex]
+                              .reverse();
+                        }
+                      } else {
+                        if (PlayAnimations
+                                .iconMap[PlayAnimations.prevStr].length >
+                            PlayAnimations.prevIndex) {
+                          PlayAnimations.iconMap[PlayAnimations.prevStr]
+                                  [PlayAnimations.prevIndex]
+                              .forward();
+                        }
+                        resumeIt();
+                      }
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
-        ),
-        IconButton(
-          icon: AnimatedIcon(
-            icon: AnimatedIcons.play_pause,
-            progress: anime,
-            size: 28.0,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            if (name.playState) {
-              pauseIt();
-              if (PlayAnimations.iconMap[PlayAnimations.prevStr].length >
-                  PlayAnimations.prevIndex) {
-                PlayAnimations.iconMap[PlayAnimations.prevStr]
-                        [PlayAnimations.prevIndex]
-                    .reverse();
-              }
-            } else {
-              if (PlayAnimations.iconMap[PlayAnimations.prevStr].length >
-                  PlayAnimations.prevIndex) {
-                PlayAnimations.iconMap[PlayAnimations.prevStr]
-                        [PlayAnimations.prevIndex]
-                    .forward();
-              }
-              resumeIt();
-            }
-          },
-        ),
-      ],
-    );
+          )
+        : SizedBox();
   }
 }
